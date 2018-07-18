@@ -39,7 +39,7 @@ while yn == 'n':
 	jack, jill = jimmy.split('\"', 1)
 	jorge = jack.replace('170/', '500/')
 	os.system('curl -s ' + jorge + ' > albumImg.jpg')
-	### need to make a quality check here
+	### need to make a quality check here, also need to add year to the album metadata
 	yn = 'y'
 	if yn == 'n':
 		matchTik += 1
