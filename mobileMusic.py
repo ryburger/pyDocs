@@ -39,9 +39,8 @@ while yn == 'n':
 	jack, jill = jimmy.split('\"', 1)
 	jorge = jack.replace('170/', '500/')
 	os.system('curl -s ' + jorge + ' > albumImg.jpg')
-#	os.system('fbi albumImg.jpg')
+	### need to make a quality check here
 	yn = 'y'
-#	yn = input('is this your album cover?(y/n): ')
 	if yn == 'n':
 		matchTik += 1
 	elif yn == 'error':
@@ -59,14 +58,12 @@ curry = 0
 discQuest = requests.get('https://www.allmusic.com' + discUrl, headers={'User-Agent': 'Mozilla/5.0 (X11;Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'})
 discString = discQuest.text
 discMatch = re.findall('(?<=https://www.allmusic.com/song/)(.*)', discString)
-#print(len(discMatch))
 discLen = len(discMatch)
 while discLen != 0:
 	cry = discMatch[curry]
 	high, guy = cry.split('\"', 1)
 	underTrack, mountain = high.split('-mt00', 1)
 	lye = underTrack.replace('-', ' ')
-#	print(lye)
 	discList.append(lye)
 	discLen -= 1
 	curry +=1
@@ -90,7 +87,6 @@ while ytyn == 'n':
 	timerTwo = len(ytdlList)
 	timerThree = 0
 	timerFour = 0
-#	print(len(ytdlList), len(discList))
 	while timerOne != 0 and timerTwo != 0:
 		timerFour += 1
 		print(str(timerFour) + '. ' + ytdlList[timerThree] + '-' + discList[timerThree])
@@ -156,14 +152,7 @@ while snickers != 0 and missingSongsYN == 'y':
 	misString = misQuest.text
 	misMatch = re.findall('(?<=class=\"yt-lockup-title \"><a href=\")(.*)', misString)
 	while misyn != 'y' and misyn != 's' and len(misMatch) > 1:
-#		misList = []
 		print('Searching...')
-#		misSong = misTitle[simba]
-#		misNum = misNumber[simba]
-#		plusMisSong = misSong.replace(' ', '+')
-#		misQuest = requests.get('https://www.youtube.com/results?sp=EgIQAUIECAESAA%253D%253D&search_query=' + plusArt + '+' + plusMisSong)
-#		misString = misQuest.text
-#		misMatch = re.findall('(?<=class=\"yt-lockup-title \"><a href=\")(.*)', misString)
 		misHref = misMatch[misLizard]
 		href, rest = misHref.split('\"', 1)
 		os.system('youtube-dl --get-title https://www.youtube.com' + href)
@@ -234,5 +223,4 @@ os.system('mkdir ' + underArt + '_-_' + underAlb)
 os.system('mv *.mp3 ' + underArt + '_-_' + underAlb)
 os.system('mv ' + underArt + '_-_' + underAlb + ' ../hold')
 os.system('python3 ../docs/sort.py')
-#os.system('python3 ../docs/sync.py')
 print('Done!')
